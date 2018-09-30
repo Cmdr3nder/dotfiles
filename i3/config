@@ -26,6 +26,13 @@ font pango:System San Francisco Display 16
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# color vars
+set $bg-color               #2f343f
+set $inactive-bg-color      #2f343f
+set $text-color             #f3f4f5
+set $inactive-text-color    #676e7d
+set $urgent-bg-color        #e53935
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -36,7 +43,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+semicolon kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec dmenu_run
+bindsym $mod+e exec dmenu_run -l 32 -nb "$inactive-bg-color" -nf "$inactive-text-color" -sb "$bg-color" -sf "$text-color"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -130,6 +137,7 @@ bindsym $mod+Shift+plus move container to workspace $ws9
 bindsym $mod+Shift+bracketright move container to workspace $ws10
 
 # send opened programs to appropriate workspaces
+# find classnames by xprop, click, className
 assign [class="Pithos"] $ws10
 assign [class="Firefox"] $ws2
 
@@ -167,14 +175,35 @@ mode "resize" {
 
 bindsym $mod+p mode "resize"
 
+# window colors
+#                       border              background          text                    indicator
+client.focused          $bg-color           $bg-color           $text-color             #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color    #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color    #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color             #00ff00
+
+hide_edge_borders both
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
+        colors {
+            background $bg-color
+            separator #757575
+            #                   border              background          text
+            focused_workspace   $bg-color           $bg-color           $text-color
+            inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
+            urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color
+        }
+        position top
 }
 
+# sticky window
+#bindsym $mod+shift+s sticky toggle
+
 # Lock screen
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # Adapted from https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
 # Pulse Audio controls
@@ -196,7 +225,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always feh --bg-scale ~/Pictures/wallpaper
 
 # Work keyboard fix
-exec_always fix_keyboard
+exec_always setxkbmap -option caps:escape -option keypad:atm
 
 # Screen Resolution and Layout, produced with arandr
 # Work Laptop, No External
