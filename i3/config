@@ -187,10 +187,10 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color     
 
 hide_edge_borders both
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command i3blocks -c ~/.config/i3blocks/config
         colors {
             background $bg-color
             separator #757575
@@ -210,19 +210,19 @@ bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # Adapted from https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+7 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+7 i3blocks #decrease sound volume
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+7 i3blocks # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioPause exec playerctl play-pause && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+10 i3blocks
 
 # Wallpaper
 exec_always feh --bg-scale ~/Pictures/wallpaper
@@ -231,8 +231,9 @@ exec_always feh --bg-scale ~/Pictures/wallpaper
 exec_always setxkbmap -option caps:escape -option keypad:atm
 
 # Screen Resolution and Layout, produced with arandr
-# Work Laptop, No External
-exec_always xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
+exec_always ~/.screenlayout/primary
+# Work Laptop, No External, Rescue Me Config
+bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
 
 # Programs to launch on login
 # Music?
