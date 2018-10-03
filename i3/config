@@ -143,6 +143,7 @@ assign [class="Firefox"] $ws2
 assign [class="Slack"] $ws9
 assign [class="Thunderbird"] $ws9
 assign [class="zoom"] $ws8
+assign [class="vlc"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+j reload
@@ -208,6 +209,10 @@ bar {
 # Lock screen
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
+# Disable display sleeping (causes audio issues with HDMI)
+# See: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
+exec_always xset dpms 0 0 0
+
 # Adapted from https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+7 i3blocks #increase sound volume
@@ -236,8 +241,12 @@ exec_always ~/.screenlayout/primary
 bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
 
 # Programs to launch on login
-# Music?
-exec pithos
+# Web
+exec firefox
 # Comms?
 exec slack
 exec thunderbird
+
+# Applets to launch on login
+# wireless
+exec --no-startup-id nm-applet
