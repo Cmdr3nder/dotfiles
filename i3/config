@@ -197,11 +197,11 @@ gaps outer $extra-surround-size
 # find classnames by xprop, click, className
 assign [class="Pithos"] $ws10
 assign [class="Firefox"] $ws2
-assign [class="Slack"] $ws9
 assign [class="Thunderbird"] $ws9
-assign [class="zoom"] $ws8
 assign [class="vlc"] $ws10
 assign [class="Cantata"] $ws10
+assign [class="discord"] $ws9
+assign [class="Steam"] $ws8
 
 # reload the configuration file
 bindsym $mod+Shift+j reload
@@ -268,9 +268,6 @@ bindsym $mod+shift+o sticky toggle
 bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$base02"
 # bindsym $mod+shift+x exec i3lock --color "$base02"
 
-# Work vpn all-the-time
-exec_always --no-startup-id ~/.bin/vpn
-
 # Disable display sleeping (causes audio issues with HDMI)
 # See: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
 #exec_always sleep 1; xset dpms 0 0 0
@@ -301,9 +298,6 @@ exec_always setxkbmap -option caps:swapescape -option keypad:atm -option compose
 # Screen Resolution and Layout, produced with arandr
 exec_always ~/.screenlayout/primary
 
-# Work Laptop, No External, Rescue Me Config
-bindsym $mod+shift+l exec xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-2 --off
-
 # Wallpaper
 exec_always feh --bg-scale ~/Pictures/wallpaper
 exec_always --no-startup-id xsetroot -solid "$base1"
@@ -331,11 +325,13 @@ for_window [class="Pavucontrol"] floating enable, resize set 960 540
 for_window [class="Rsu-query-unix"] floating enable, resize set 960 540
 
 # Programs to launch on login
+# Games
+exec steam
 # Web
 exec firefox
 # Comms?
-# exec slack # no longer likes to be the correct size if auto-launching
 exec thunderbird
+exec discord-canary
 
 # Applets to launch on login
 # wireless
