@@ -211,7 +211,8 @@ bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # Disable display sleeping (causes audio issues with HDMI)
 # See: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
-exec_always xset dpms 0 0 0
+#exec_always sleep 1; xset dpms 0 0 0
+exec_always sleep 1; xset s off -dpms
 
 # Adapted from https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
 # Pulse Audio controls
@@ -250,3 +251,4 @@ exec thunderbird
 # Applets to launch on login
 # wireless
 exec --no-startup-id nm-applet
+exec --no-startup-id copyq
