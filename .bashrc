@@ -188,7 +188,13 @@ function find_ip {
 }
 
 function inner_find_ip {
-    export MY_IP=`ip -o -4 addr list vpn0 | awk '{print $4}' | cut -d/ -f1`;
+    if [ -n "$(ip -o -4 addr list | grep 'vpn0')" ]; then
+        export MY_IP=`ip -o -4 addr list vpn0 | awk '{print $4}' | cut -d/ -f1`;
+    elif [ -n "$(ip -o -4 addr list | grep 'tun0')" ]; then
+        export MY_IP=`ip -o -4 addr list tun0 | awk '{print $4}' | cut -d/ -f1`;
+    else
+        export MY_IP="unknown"
+    fi
 }
 
 function port_squatter {
@@ -235,3 +241,4 @@ function xmlless() {
 alias celar='clear'
 alias rg='rg --color=always --heading'
 alias less='less -R'
+alias view='nvim -R'
