@@ -209,6 +209,9 @@ bar {
 # Lock screen
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
+# Work vpn all-the-time
+exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/vpn.sh
+
 # Disable display sleeping (causes audio issues with HDMI)
 # See: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
 #exec_always sleep 1; xset dpms 0 0 0

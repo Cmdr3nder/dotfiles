@@ -34,6 +34,7 @@ careful_link $DIR_SH/.bashrc ~/.bashrc
 
 # Deal with i3
 echo "----------------------i3----------------------"
+careful_link $DIR_SH/vpn.sh ~/vpn.sh
 mkdir -pv ~/.config/i3
 careful_link $DIR_SH/i3/config ~/.config/i3/config
 mkdir -pv ~/.config/i3blocks
