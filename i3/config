@@ -248,6 +248,13 @@ bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 25
 for_window [class="CHROME_NETFLIX"] floating enable, border none, resize set 480 270
 bindsym $mod+shift+b exec --no-startup-id ~/.bin/netflix
 
+# Cruchyroll PiP Launcher on Qwerty "M" key
+for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, resize set 480 270
+bindsym $mod+shift+m exec --no-startup-id ~/.bin/crunchyroll
+
+# YouTube PiP
+for_window [title="YouTube - mpv"] floating enable, border none, sticky enable, resize set 480 270
+
 # Crunchyroll PiP Launcher on Qwerty "M" key
 for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, resize set 480 270
 bindsym $mod+shift+m exec --no-startup-id ~/.bin/netflix
@@ -266,9 +273,4 @@ exec thunderbird
 # wireless
 exec --no-startup-id nm-applet
 exec --no-startup-id copyq
-
-# Media Applications
-for_window [class="CHROME_NETFLIX"] floating enable, border none, sticky enable, resize set 480 270
-bindsym $mod+shift+b exec --no-startup-id ~/.bin/netflix
-for_window [title="YouTube - mpv"] floating enable, border none, sticky enable, resize set 480 270
 
