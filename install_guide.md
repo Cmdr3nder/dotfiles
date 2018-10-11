@@ -4,8 +4,8 @@
 1) Install appropriate matching version from the repositories documented at https://i3wm.org/docs/repositories.html
     * If Ubuntu, use the name of your release such as "xenial" as DISTRIB_CODENAME.
     * If Mint, use the matching ubuntu name for your release such as "xenial" instead of "serena"
-1) Install suckless-tools [dmenu], arandr, lxappearance, feh, pulseaudio, fonts-font-awesome, alsa-utils, acpi, python3, i3status, i3blocks, and i3lock from apt if not already installed
-1) Install copyq (for clipboard manangement), should be available from apt
+1) Install suckless-tools [dmenu], arandr, lxappearance, feh, pulseaudio, fonts-font-awesome, alsa-utils, acpi, python3, youtube-dl, mpv, i3status, i3blocks, and i3lock from apt if not already installed
+1) Install copyq (for clipboard manangement), is not available from apt
 1) Install playerctl from https://github.com/acrisci/playerctl/releases
 1) Install font-awesome from https://github.com/FortAwesome/Font-Awesome/releases
     * unzip font-awesome-web.zip

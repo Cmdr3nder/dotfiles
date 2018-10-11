@@ -210,7 +210,7 @@ bar {
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # Work vpn all-the-time
-exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/vpn.sh
+exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/.bin/vpn
 
 # Disable display sleeping (causes audio issues with HDMI)
 # See: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
@@ -255,3 +255,9 @@ exec thunderbird
 # wireless
 exec --no-startup-id nm-applet
 exec --no-startup-id copyq
+
+# Media Applications
+for_window [class="CHROME_NETFLIX"] floating enable, border none, sticky enable, resize set 480 270
+bindsym $mod+shift+b exec --no-startup-id ~/.bin/netflix
+for_window [title="YouTube - mpv"] floating enable, border none, sticky enable, resize set 480 270
+
