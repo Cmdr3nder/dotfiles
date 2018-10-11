@@ -245,19 +245,15 @@ exec_always ~/.screenlayout/primary
 bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
 
 # Netflix PiP Launcher on Qwerty "N" key
-for_window [class="CHROME_NETFLIX"] floating enable, border none, resize set 480 270
+for_window [class="CHROME_NETFLIX"] floating enable, border none, sticky enable, resize set 480 270
 bindsym $mod+shift+b exec --no-startup-id ~/.bin/netflix
 
 # Cruchyroll PiP Launcher on Qwerty "M" key
-for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, resize set 480 270
+for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, sticky enable, resize set 480 270
 bindsym $mod+shift+m exec --no-startup-id ~/.bin/crunchyroll
 
 # YouTube PiP
 for_window [title="YouTube - mpv"] floating enable, border none, sticky enable, resize set 480 270
-
-# Crunchyroll PiP Launcher on Qwerty "M" key
-for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, resize set 480 270
-bindsym $mod+shift+m exec --no-startup-id ~/.bin/netflix
 
 # Audio Mixer
 for_window [class="Pavucontrol"] floating enable, resize set 960 540
