@@ -43,7 +43,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+semicolon kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec dmenu_run -l 32 -nb "$inactive-bg-color" -nf "$inactive-text-color" -sb "$bg-color" -sf "$text-color"
+bindsym $mod+e exec i3-dmenu-desktop --dmenu='dmenu -l 32 -nb "$inactive-bg-color" -nf "$inactive-text-color" -sb "$bg-color" -sf "$text-color"'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -243,6 +243,17 @@ exec_always setxkbmap -option caps:escape -option keypad:atm
 exec_always ~/.screenlayout/primary
 # Work Laptop, No External, Rescue Me Config
 bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
+
+# Netflix PiP Launcher on Qwerty "N" key
+for_window [class="CHROME_NETFLIX"] floating enable, border none, resize set 480 270
+bindsym $mod+shift+b exec --no-startup-id ~/.bin/netflix
+
+# Crunchyroll PiP Launcher on Qwerty "M" key
+for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, resize set 480 270
+bindsym $mod+shift+m exec --no-startup-id ~/.bin/netflix
+
+# Audio Mixer
+for_window [class="Pavucontrol"] floating enable, resize set 960 540
 
 # Programs to launch on login
 # Web

@@ -95,3 +95,6 @@ careful_link $DIR_SH/i3/config ~/.config/i3/config
 mkdir -pv ~/.config/i3blocks
 careful_git_clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/contrib
 careful_link $DIR_SH/i3/i3blocks.conf ~/.config/i3blocks/config
+mkdir -pv ~/.bin
+careful_link $DIR_SH/netflix.sh ~/.bin/netflix
+careful_link $DIR_SH/crunchyroll.sh ~/.bin/crunchyroll
