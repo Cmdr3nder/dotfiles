@@ -324,6 +324,9 @@ for_window [class="Pavucontrol"] floating enable, resize set 960 540
 # RuneScape Launcher https://github.com/rsu-client/rsu-client
 for_window [class="Rsu-query-unix"] floating enable, resize set 960 540
 
+# Window Adjustments for Games
+for_window [class="StepMania"] floating enable
+
 # Programs to launch on login
 # Games
 exec steam
