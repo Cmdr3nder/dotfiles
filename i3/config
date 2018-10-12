@@ -234,7 +234,7 @@ bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+10 i3blocks
 
 # Work keyboard fix
-exec_always setxkbmap -option caps:escape -option keypad:atm
+exec_always setxkbmap -option caps:swapescape -option keypad:atm -option compose:rctrl
 
 # Screen Resolution and Layout, produced with arandr
 exec_always ~/.screenlayout/primary
