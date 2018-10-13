@@ -244,16 +244,20 @@ bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 25
 # Wallpaper
 exec_always feh --bg-scale ~/Pictures/wallpaper
 
+# PiP Config
+set $pipWidth 720
+set $pipHeight 405
+
 # Netflix PiP Launcher on Qwerty "N" key
-for_window [class="CHROME_NETFLIX"] floating enable, border none, sticky enable, resize set 480 270
+for_window [class="CHROME_NETFLIX"] floating enable, border none, sticky enable, resize set $pipWidth $pipHeight
 bindsym $mod+shift+b exec --no-startup-id ~/.bin/netflix
 
 # Cruchyroll PiP Launcher on Qwerty "M" key
-for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, sticky enable, resize set 480 270
+for_window [class="CHROME_CRUNCHYROLL"] floating enable, border none, sticky enable, resize set $pipWidth $pipHeight
 bindsym $mod+shift+m exec --no-startup-id ~/.bin/crunchyroll
 
 # YouTube PiP
-for_window [title="YouTube - mpv"] floating enable, border none, sticky enable, resize set 480 270
+for_window [title="YouTube - mpv"] floating enable, border none, sticky enable, resize set $pipWidth $pipHeight
 
 # Audio Mixer
 for_window [class="Pavucontrol"] floating enable, resize set 960 540
