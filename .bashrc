@@ -245,3 +245,7 @@ alias view='nvim -R'
 
 export PATH="$HOME/.bin:$PATH"
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/andrew/.sdkman"
+[[ -s "/home/andrew/.sdkman/bin/sdkman-init.sh" ]] && source "/home/andrew/.sdkman/bin/sdkman-init.sh"
