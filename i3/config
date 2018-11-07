@@ -262,6 +262,9 @@ for_window [title="YouTube - mpv"] floating enable, border none, sticky enable, 
 # Audio Mixer
 for_window [class="Pavucontrol"] floating enable, resize set 960 540
 
+# RuneScape Launcher https://github.com/rsu-client/rsu-client
+for_window [class="Rsu-query-unix"] floating enable, resize set 960 540
+
 # Programs to launch on login
 # Web
 exec firefox
