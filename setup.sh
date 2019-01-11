@@ -62,6 +62,13 @@ execute_careful_install() {
     fi
 }
 
+# manual_install_warn $1=program $2=url
+manual_install_warn() {
+    if [ -z "$(which $1)" ]; then
+        echo "Please install $1 from $2"
+    fi
+}
+
 # Deal with bash
 echo "---------------------bash---------------------"
 careful_link $DIR_SH/.bashrc ~/.bashrc
@@ -79,12 +86,40 @@ careful_install_font fonts-font-awesome
 careful_install alsamixer alsa-utils
 careful_install acpi
 careful_install python3
-careful_install youtube-dl
 careful_install mpv
 careful_install i3status
 careful_install i3blocks
 careful_install i3lock
+careful_install wget
+careful_install unzip
 execute_careful_install
+
+echo "--------------manual-install------------------"
+mkdir -pv ~/.bin
+if [ -z "$(which youtube-dl)" ]; then
+    wget https://youtube-dl.org/downloads/latest/youtube-dl
+    echo "mv youtube-dl ~/.bin/youtube-dl"
+    mv youtube-dl ~/.bin/youtube-dl
+    echo "chmod +x ~/.bin/youtube-dl"
+    chmod +x ~/.bin/youtube-dl
+fi
+
+mkdir -pv ~/.fonts
+if [ -z "$(find ~/.fonts -type f -name "*San Francisco*")" ]; then
+    wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+    echo "unzip master.zip"
+    unzip master.zip
+    SF_FONT=`find . -type d -name "*San*Francisco*"`
+    echo "cp $SF_FONT/*.ttf ~/.fonts/"
+    cp $SF_FONT/*.ttf ~/.fonts/
+    echo "rm -rf $SF_FONT"
+    rm -rf $SF_FONT
+    echo "rm master.zip"
+    rm master.zip
+fi
+
+manual_install_warn copyq https://github.com/hluk/CopyQ/releases
+manual_install_warn playerctl https://github.com/acrisci/playerctl/releases
 
 # Deal with i3
 echo "----------------------i3----------------------"
