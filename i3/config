@@ -204,7 +204,7 @@ bar {
 }
 
 # sticky window
-#bindsym $mod+shift+s sticky toggle
+bindsym $mod+shift+o sticky toggle
 
 # Lock screen
 bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$bg-color"
