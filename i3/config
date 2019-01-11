@@ -33,6 +33,10 @@ set $text-color             #f3f4f5
 set $inactive-text-color    #676e7d
 set $urgent-bg-color        #e53935
 
+# gaps vars
+set $default-gap-size       20
+set $extra-surround-size     5
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -135,6 +139,14 @@ bindsym $mod+Shift+asterisk move container to workspace $ws7
 bindsym $mod+Shift+2 move container to workspace $ws8
 bindsym $mod+Shift+plus move container to workspace $ws9
 bindsym $mod+Shift+bracketright move container to workspace $ws10
+
+# gaps config
+for_window [class="^.*"] border pixel 0
+gaps inner $default-gap-size
+gaps outer $extra-surround-size
+
+# compton config
+exec_always --no-startup-id compton
 
 # send opened programs to appropriate workspaces
 # find classnames by xprop, click, className

@@ -68,6 +68,8 @@ careful_link $DIR_SH/.bashrc ~/.bashrc
 
 # Deal with necessary programs
 echo "------------------apt-install-----------------"
+careful_install compton
+careful_install nvim neovim
 careful_install dmenu suckless-tools
 careful_install arandr
 careful_install lxappearance
@@ -96,3 +98,8 @@ careful_link $DIR_SH/i3/config ~/.config/i3/config
 mkdir -pv ~/.config/i3blocks
 careful_git_clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/contrib
 careful_link $DIR_SH/i3/i3blocks.conf ~/.config/i3blocks/config
+
+# Deal with nvim
+echo "-------------------neovim---------------------"
+mkdir -pv ~/.config/nvim
+careful_link $DIR_SH/nvim/init.vim ~/.config/nvim/init.vim
