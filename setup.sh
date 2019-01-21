@@ -15,6 +15,18 @@ careful_link() {
     ln -sf $1 $2
 }
 
+sudo_careful_link() {
+    if [ -f $2 ]; then
+        if [ ! -L $2 ]; then
+            echo "sudo mv $2 $2.bup"
+            sudo mv $2 $2.bup
+        fi
+    fi
+
+    echo "sudo ln -sf $1 $2"
+    sudo ln -sf $1 $2
+}
+
 # careful_git_clone $1=repo $2=folder
 careful_git_clone() {
     if [ ! -d $2 ]; then
@@ -133,6 +145,10 @@ careful_link $DIR_SH/i3/config ~/.config/i3/config
 mkdir -pv ~/.config/i3blocks
 careful_git_clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/contrib
 careful_link $DIR_SH/i3/i3blocks.conf ~/.config/i3blocks/config
+
+# Deal with Git
+echo "---------------------git----------------------"
+sudo_careful_link $DIR_SH/gitconfig_system /etc/gitconfig
 
 # Deal with nvim
 echo "-------------------neovim---------------------"

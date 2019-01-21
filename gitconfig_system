@@ -1,0 +1,76 @@
+[core]
+	autocrlf = input
+	editor = vim
+	pager = less -x1,5
+[push]
+	default = simple
+[alias]
+	unadd = reset HEAD
+	co = checkout
+	cob = checkout -b
+	newb = !git rfd && git cob
+	cod = checkout develop
+	rbd = rebase develop
+	mgd = merge develop
+	rfd = !git cod && git pull --rebase
+	com = checkout master
+	rbm = rebase master
+	mgm = merge master
+	rfm = !git com && git pull --rebase
+	cor = checkout release/7-535
+	rbr = rebase release/7-535
+	mgr = merge release/7-535
+	rfr = !git cor && git pull --rebase
+	cof = checkout develop-7-500
+	rbf = rebase develop-7-500
+	mgf = merge develop-7-500
+	rff = !git cof && git pull --rebase
+	co8 = checkout developv8
+	rb8 = rebase developv8
+	mg8 = merge developv8
+	rf8 = !git co8 && git pull --rebase
+	current = !echo `git branch | grep '*' | awk 'NF>1{print $NF}'`
+	cm = commit -a -m
+	amend = commit -a --amend --no-edit
+	amendm = commit -a --amend
+	ec = config --global -e
+	fr = !git full-rebase
+	full-rebase = !CURRENT=`git current` && git rfd && git rebasey $CURRENT
+	full-release = !CURRENT=`git current` && git rfr && git releasey $CURRENT
+	full-feature = !CURRENT=`git current` && git rff && git refeaturey $CURRENT
+	full-master = !CURRENT=`git current` && git rfm && git remastery $CURRENT
+	full-8 = !CURRENT=`git current` && git rf8 && git re8ey $CURRENT
+	merge-develop = !CURRENT=`git current` && git rfd && git co $CURRENT && git mgd
+	merge-release = !CURRENT=`git current` && git rfr && git co $CURRENT && git mgr
+	merge-feature = !CURRENT=`git current` && git rff && git co $CURRENT && git mgf
+	merge-master = !CURRENT=`git current` && git rfm && git co $CURRENT && git mgm
+	merge-8 = !CURRENT=`git current` && git rf8 && git co $CURRENT && git mg8
+	pod = !git put-on-develop
+	put-on-develop = !CURRENT=`git current` && git fr && git cod && git merge $CURRENT
+	po8 = !git put-on-8
+	put-on-8 = !CURRENT=`git current` && git full-8 && git co8 && git merge $CURRENT
+	por = !git put-on-release
+	put-on-release = !CURRENT=`git current` && git full-release && git cor && git merge $CURRENT
+	pof = !git put-on-feature
+	put-on-feature = !CURRENT=`git current` && git full-feature && git cof && git merge $CURRENT
+	pom = !git put-on-master
+	put-on-master = !CURRENT=`git current` && git full-master && git com && git merge $CURRENT
+	diffy = !git diff > /c/ender/documents/out.diff
+	rebasey = "!f() { git co $1 && git rbd; }; f"
+	releasey = "!f() { git co $1 && git rbr; }; f"
+	refeaturey = "!f() { git co $1 && git rbf; }; f"
+	remastery = "!f() { git co $1 && git rbm; }; f"
+	re8ey = "!f() { git co $1 && git rb8; }; f"
+	full-remote-refresh = !git rff && git rfr && git rfd
+	url = remote show origin
+	push-branch = !CURRENT=`git current` && git push --set-upstream origin $CURRENT
+	bpush = !git push-branch
+	remove-branch = "!f() { git push origin :$1; git branch -D $1; }; f"
+	bkill = "!f() { git remove-branch $1; }; f"
+	latest = "!f() { git log -1 $1 && (git rev-parse ${1:-HEAD} | xclip -selection clipboard); }; f"
+	forget = update-index --assume-unchanged
+	remember = update-index --no-assume-unchanged
+	forgotten = !git ls-files -v | grep ^[a-z]
+	apply-file = "!f() { git show $1 -- $2 | git apply -; }; f"
+[gc]
+	autoDetach = false
