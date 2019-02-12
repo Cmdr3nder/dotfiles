@@ -250,6 +250,7 @@ exec_always setxkbmap -option caps:swapescape -option keypad:atm -option compose
 
 # Screen Resolution and Layout, produced with arandr
 exec_always ~/.screenlayout/primary
+
 # Work Laptop, No External, Rescue Me Config
 bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
 
@@ -281,7 +282,7 @@ for_window [class="Rsu-query-unix"] floating enable, resize set 960 540
 # Web
 exec firefox
 # Comms?
-exec slack
+# exec slack # no longer likes to be the correct size if auto-launching
 exec thunderbird
 
 # Applets to launch on login

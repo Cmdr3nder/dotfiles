@@ -239,7 +239,7 @@ function xmlless() {
 }
 
 alias celar='clear'
-alias rg='rg --color=always --heading'
+#alias rg='rg --color=always --heading'
 alias less='less -R'
 alias view='nvim -R'
 
