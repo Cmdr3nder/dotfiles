@@ -69,12 +69,12 @@ let g:lightline = {
             \}
 
 " programmer dvorak remap
-nnoremap h h
-nnoremap t j
-nnoremap n k
-nnoremap s l
-nnoremap l n
-nnoremap L N
+noremap h h
+noremap t j
+noremap n k
+noremap s l
+noremap l n
+noremap L N
 nnoremap <C-h> <C-W><C-h>
 nnoremap <C-t> <C-W><C-j>
 nnoremap <C-n> <C-W><C-k>
