@@ -159,5 +159,5 @@ mkdir -pv ~/.config/nvim
 careful_link $DIR_SH/nvim/init.vim ~/.config/nvim/init.vim
 
 # Deal with mpd
-echo "---------------------git----------------------"
+echo "---------------------mpd----------------------"
 sudo_careful_link $DIR_SH/mpd_system /etc/mpd.conf
