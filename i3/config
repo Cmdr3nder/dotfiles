@@ -329,12 +329,12 @@ for_window [class="StepMania"] floating enable
 
 # Programs to launch on login
 # Games
-exec steam
+# exec steam
 # Web
 exec firefox
 # Comms?
-exec thunderbird
-exec discord-canary
+# exec thunderbird
+# exec discord-canary
 
 # Applets to launch on login
 # wireless
