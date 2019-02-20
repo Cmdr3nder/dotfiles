@@ -156,6 +156,7 @@ assign [class="Slack"] $ws9
 assign [class="Thunderbird"] $ws9
 assign [class="zoom"] $ws8
 assign [class="vlc"] $ws10
+assign [class="Cantata"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+j reload
