@@ -104,6 +104,9 @@ careful_install i3blocks
 careful_install i3lock
 careful_install wget
 careful_install unzip
+careful_install mpd
+careful_install cantata
+careful_install paprefs
 execute_careful_install
 
 echo "--------------manual-install------------------"
@@ -146,7 +149,7 @@ mkdir -pv ~/.config/i3blocks
 careful_git_clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/contrib
 careful_link $DIR_SH/i3/i3blocks.conf ~/.config/i3blocks/config
 
-# Deal with Git
+# Deal with git
 echo "---------------------git----------------------"
 sudo_careful_link $DIR_SH/gitconfig_system /etc/gitconfig
 
@@ -154,3 +157,7 @@ sudo_careful_link $DIR_SH/gitconfig_system /etc/gitconfig
 echo "-------------------neovim---------------------"
 mkdir -pv ~/.config/nvim
 careful_link $DIR_SH/nvim/init.vim ~/.config/nvim/init.vim
+
+# Deal with mpd
+echo "---------------------git----------------------"
+sudo_careful_link $DIR_SH/mpd_system /etc/mpd.conf
