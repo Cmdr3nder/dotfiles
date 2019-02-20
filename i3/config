@@ -219,7 +219,7 @@ bar {
 bindsym $mod+shift+o sticky toggle
 
 # Lock screen
-bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$bg-color"
+bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$bg-color"
 
 # Work vpn all-the-time
 exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/.bin/vpn
