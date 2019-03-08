@@ -245,6 +245,8 @@ alias view='nvim -R'
 
 export PATH="$HOME/.bin:$PATH"
 
+# command expansion of !! and other 'history' commands, inspired by https://unix.stackexchange.com/a/147572
+bind Space:magic-space
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/andrew/.sdkman"
