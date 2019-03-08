@@ -158,6 +158,17 @@ echo "-------------------neovim---------------------"
 mkdir -pv ~/.config/nvim
 careful_link $DIR_SH/nvim/init.vim ~/.config/nvim/init.vim
 
+# Deal with nvim
+echo "---------------------vis----------------------"
+mkdir -pv ~/.config/vis
+careful_link $DIR_SH/vis/visrc.lua ~/.config/vis/visrc.lua
+careful_link $DIR_SH/vis/themes/gruvbox.lua ~/.config/vis/themes/gruvbox.lua
+careful_link $DIR_SH/vis/themes/gruvbox_dark_hard_transparent.lua ~/.config/vis/themes/gruvbox_dark_hard_transparent.lua
+
 # Deal with mpd
 echo "---------------------mpd----------------------"
 sudo_careful_link $DIR_SH/mpd_system /etc/mpd.conf
+
+# Deal with tmux
+echo "---------------------tmux---------------------"
+careful_link $DIR_SH/.tmux.conf ~/.tmux.conf
