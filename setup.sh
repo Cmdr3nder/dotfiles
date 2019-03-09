@@ -164,11 +164,9 @@ echo "---------------------vis----------------------"
 mkdir -pv ~/.config/vis
 careful_link $DIR_SH/vis/visrc.lua ~/.config/vis/visrc.lua
 careful_git_clone ssh://git@agamecoder.com/~/vis-themes.git ~/.config/vis/themes
-careful_link ~/.config/vis/themes $DIR_SH/vis/themes
 mkdir -pv ~/.config/vis/plugins
-careful_link ~/.config/vis/plugins $DIR_SH/vis/plugins
-careful_git_clone ssh://git@agamecoder.com/~/vis-sk-open.git ~/.config/plugins/vis-sk-open
-careful_git_clone ssh://git@agamecoder.com/~/vis-sk-mru.git ~/.config/plugins/vis-sk-mru
+careful_git_clone ssh://git@agamecoder.com/~/vis-sk-open.git ~/.config/vis/plugins/vis-sk-open
+careful_git_clone ssh://git@agamecoder.com/~/vis-sk-mru.git ~/.config/vis/plugins/vis-sk-mru
 
 # Deal with mpd
 echo "---------------------mpd----------------------"
