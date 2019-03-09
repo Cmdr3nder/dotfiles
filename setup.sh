@@ -135,6 +135,7 @@ fi
 
 manual_install_warn copyq https://github.com/hluk/CopyQ/releases
 manual_install_warn playerctl https://github.com/acrisci/playerctl/releases
+manual_install_warn vis https://github.com/martanne/vis
 
 # Deal with i3
 echo "----------------------i3----------------------"
