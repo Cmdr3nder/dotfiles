@@ -246,6 +246,9 @@ bindsym XF86AudioPause exec playerctl play-pause && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+10 i3blocks
 
+# Mouse Focus
+focus_follows_mouse no
+
 # Work keyboard fix
 exec_always setxkbmap -option caps:swapescape -option keypad:atm -option compose:rctrl
 
