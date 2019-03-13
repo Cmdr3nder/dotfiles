@@ -88,6 +88,9 @@ nnoremap <C-W><C-s> <C-W><C-l>
 noremap - $
 noremap _ ^
 
+" terminal mode remap
+tnoremap <Esc> <C-\><C-n>
+
 " colors
 set background=dark
 " colorscheme elflord
@@ -112,3 +115,8 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " set up list/listchars (:list, :nolist, :list!)
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+
+" set auto-reload of buffers from disk on change (for example git checkout)
+set autoread
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
