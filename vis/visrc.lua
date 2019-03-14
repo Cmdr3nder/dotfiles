@@ -1,6 +1,7 @@
 --load standard vis module, providing parts of the Lua API
 require('vis')
 require('themes/gruvbox_dark_hard_transparent')
+require('plugins/vis-sk-open/sk-open')
 
 vis.events.subscribe(vis.events.INIT, function()
     vis:command('set theme gruvbox_dark_hard_transparent')
