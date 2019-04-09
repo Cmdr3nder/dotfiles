@@ -26,6 +26,15 @@ font pango:System San Francisco Display 16
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# color core
+# built with https://www.hexcolortool.com
+# Blue   10% Shading Light 6EE2FF 88FCFF A1FFFF BBFFFF D4FFFF EDFFFF
+# Blue   10% Shading Dark  6EE2FF 55C9E6 3BAFCC 2296B3 087C99 006380 004966 00304D 001633 00001A
+# Yellow 10% Shading Light F7C530 FFDF4A FFF863 FFFF7D FFFF96 FFFFAF FFFFC9 FFFFE3 FFFFFC
+# Yellow 10% Shading Dark  F7C530 DEAC17 C49200 AB7900 915F00 784600 5E2C00 451300 2B0000 120000
+# Orange 10% Shading Light F79D1E FFB738 FFD051 FFEA6B FFFF84 FFFF9D FFFFB7 FFFFD1 FFFFEA
+# Orange 10% Shading Dark  F79D1E DE8405 C46A00 AB5100 913700 781E00 5E0400 450000 2B0000 120000
+
 # color vars
 set $primary-bg             #0C141F
 
@@ -33,13 +42,13 @@ set $window-border          #0C141F
 set $active-window-border   #6EE2FF
 set $urgent-window-border   #F79D1E
 
-set $text                   #E6FFFF
+set $text                   #BBFFFF
 set $active-text            #6EE2FF
 set $urgent-text            #F79D1E
 
 # gaps vars
-set $default-gap-size       20
-set $extra-surround-size     5
+set $default-gap-size       10
+set $extra-surround-size     0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -150,7 +159,7 @@ gaps inner $default-gap-size
 gaps outer $extra-surround-size
 
 # compton config
-exec_always --no-startup-id compton
+# exec_always --no-startup-id compton
 
 # send opened programs to appropriate workspaces
 # find classnames by xprop, click, className
