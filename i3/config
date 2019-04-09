@@ -27,11 +27,15 @@ font pango:System San Francisco Display 16
 # font, it doesn’t scale on retina/hidpi displays.
 
 # color vars
-set $bg-color               #458588
-set $inactive-bg-color      #2f343f
-set $text-color             #f3f4f5
-set $inactive-text-color    #676e7d
-set $urgent-bg-color        #e53935
+set $primary-bg             #0C141F
+
+set $window-border          #0C141F
+set $active-window-border   #6EE2FF
+set $urgent-window-border   #F79D1E
+
+set $text                   #E6FFFF
+set $active-text            #6EE2FF
+set $urgent-text            #F79D1E
 
 # gaps vars
 set $default-gap-size       20
@@ -47,7 +51,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+semicolon kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec i3-dmenu-desktop --dmenu='dmenu -l 32 -nb "$inactive-bg-color" -nf "$inactive-text-color" -sb "$bg-color" -sf "$text-color"'
+bindsym $mod+e exec i3-dmenu-desktop --dmenu='dmenu -l 32 -nb "$primary-bg" -nf "$text" -sb "$primary-bg" -sf "$active-text"'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -193,11 +197,11 @@ mode "resize" {
 bindsym $mod+p mode "resize"
 
 # window colors
-#                       border              background          text                    indicator
-client.focused          $bg-color           $bg-color           $text-color             $bg-color
-client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color    $inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color    $inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color             $urgent-bg-color
+#                       border                background            text            indicator
+client.focused          $active-window-border $active-window-border $window-border  $active-window-border
+client.unfocused        $window-border        $window-border        $text           $window-border
+client.focused_inactive $window-border        $window-border        $text           $window-border
+client.urgent           $urgent-window-border $urgent-window-border $window-border  $urgent-window-border
 
 hide_edge_borders both
 
@@ -206,12 +210,12 @@ hide_edge_borders both
 bar {
         status_command i3blocks -c ~/.config/i3blocks/config
         colors {
-            background $inactive-bg-color
-            separator #757575
-            #                   border              background          text
-            focused_workspace   $bg-color           $bg-color           $text-color
-            inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
-            urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color
+            background $primary-bg
+            separator $primary-bg
+            #                   border          background     text
+            focused_workspace   $primary-bg     $primary-bg    $active-text
+            inactive_workspace  $primary-bg     $primary-bg    $text
+            urgent_workspace    $primary-bg     $primary-bg    $urgent-text
         }
         position top
 }
@@ -220,7 +224,8 @@ bar {
 bindsym $mod+shift+o sticky toggle
 
 # Lock screen
-bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$bg-color"
+# bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$primary-bg"
+bindsym $mod+shift+x exec i3lock --color "$primary-bg"
 
 # Work vpn all-the-time
 exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/.bin/vpn
@@ -260,8 +265,8 @@ bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 25
 
 # Wallpaper
 # exec_always feh --bg-scale ~/Pictures/wallpaper
-exec_always --no-startup-id xsetroot -solid "$inactive-bg-color"
-exec_always --no-startup-id hsetroot -solid "$inactive-bg-color"
+exec_always --no-startup-id xsetroot -solid "$primary-bg"
+exec_always --no-startup-id hsetroot -solid "$primary-bg"
 
 # PiP Config
 set $pipWidth 720
