@@ -107,6 +107,7 @@ careful_install unzip
 careful_install mpd
 careful_install cantata
 careful_install paprefs
+careful_install hsetroot
 execute_careful_install
 
 echo "--------------manual-install------------------"
