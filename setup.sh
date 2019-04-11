@@ -176,3 +176,6 @@ sudo_careful_link $DIR_SH/mpd_system /etc/mpd.conf
 # Deal with tmux
 echo "---------------------tmux---------------------"
 careful_link $DIR_SH/.tmux.conf ~/.tmux.conf
+
+# Manually config gtk
+careful_link $DIR_SH/gtk.css ~/.config/gtk-3.0/gtk.css
