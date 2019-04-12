@@ -42,8 +42,8 @@ set $window-border          #0C141F
 set $active-window-border   #6EE2FF
 set $urgent-window-border   #F79D1E
 
-set $text                   #BBFFFF
-set $active-text            #6EE2FF
+set $text                   #6EE2FF
+set $active-text            #BBFFFF
 set $urgent-text            #F79D1E
 
 # gaps vars
