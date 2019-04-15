@@ -35,6 +35,12 @@ font pango:System San Francisco Display 16
 # Orange 10% Shading Light F79D1E FFB738 FFD051 FFEA6B FFFF84 FFFF9D FFFFB7 FFFFD1 FFFFEA
 # Orange 10% Shading Dark  F79D1E DE8405 C46A00 AB5100 913700 781E00 5E0400 450000 2B0000 120000
 
+# terminal-16
+# black  red    green  yellow blue   purple cyan   white
+# grey   YELLOW blue   yellow blue   orange blue   blue
+# 0C141F F7C530 2296B3 F79D1E 55C9E6 C46A00 A1FFFF 006380
+# 555555 FFF863 087C99 FFD051 3BAFCC AB5100 88FCFF 004966
+
 # color vars
 set $primary-bg             #0C141F
 

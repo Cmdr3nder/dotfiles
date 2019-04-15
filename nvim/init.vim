@@ -4,7 +4,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 call plug#begin('~/.config/nvim/plugged')
-Plug 'morhetz/gruvbox'
+Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'lotabout/skim'
 Plug 'lotabout/skim.vim'
 Plug 'itchyny/lightline.vim'
@@ -23,20 +23,6 @@ let g:skim_action = {
             \}
 " down/up/left/right
 let g:skim_layout = { 'down': '~20%' }
-let g:skim_colors = {
-            \ 'fg': ['fg', 'GruvboxGray'],
-            \ 'bg': ['bg', 'Normal'],
-            \ 'h1': ['fg', 'GruvboxRed'],
-            \ 'fg+': ['fg', 'GruvboxGreen'],
-            \ 'bg+': ['bg', 'GruvboxBg1'],
-            \ 'h1+': ['fg', 'GruvboxRed'],
-            \ 'info': ['fg', 'GruvboxOrange'],
-            \ 'prompt': ['fg', 'GruvboxBlue'],
-            \ 'header': ['fg', 'GruvboxBlue'],
-            \ 'pointer': ['fg', 'Error'],
-            \ 'marker': ['fg', 'Error'],
-            \ 'spinner': ['fg', 'Statement'],
-            \ }
 
 " line config
 function! LightlineFileformat()
@@ -49,7 +35,7 @@ endfunction
 
 set noshowmode
 let g:lightline = {
-            \ 'colorscheme': 'gruvbox',
+            \ 'colorscheme': '16color',
             \ 'active': {
             \  'left': [
             \           [ 'mode', 'paste' ],
@@ -93,13 +79,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " colors
 set background=dark
-" colorscheme elflord
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set termguicolors
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
-hi Normal guibg=NONE ctermbg=NONE
+colorscheme dim
 
 " turn on line numbers
 set number
