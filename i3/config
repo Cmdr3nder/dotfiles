@@ -37,9 +37,8 @@ font pango:System San Francisco Display 16
 
 # terminal-16
 # black  red    green  yellow blue   purple cyan   white
-# grey   YELLOW blue   yellow blue   orange blue   blue
-# 0C141F F7C530 2296B3 F79D1E 55C9E6 C46A00 A1FFFF 006380
-# 555555 FFF863 087C99 FFD051 3BAFCC AB5100 88FCFF 004966
+# 0C141F CC0E00 006151 F79D1E 004966 000B27 097D80 66C7B7
+# 8B939E FF410D 40E0D0 FFD051 7FC8E5 748AA6 88FCFF E5FFFF
 
 # color vars
 set $primary-bg             #0C141F
