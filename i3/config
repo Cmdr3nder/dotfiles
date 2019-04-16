@@ -326,6 +326,7 @@ for_window [class="Rsu-query-unix"] floating enable, resize set 960 540
 
 # Window Adjustments for Games
 for_window [class="StepMania"] floating enable
+for_window [class="pong"] floating enable
 
 # Programs to launch on login
 # Games
