@@ -26,30 +26,23 @@ font pango:System San Francisco Display 16
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# color core
-# built with https://www.hexcolortool.com
-# Blue   10% Shading Light 6EE2FF 88FCFF A1FFFF BBFFFF D4FFFF EDFFFF
-# Blue   10% Shading Dark  6EE2FF 55C9E6 3BAFCC 2296B3 087C99 006380 004966 00304D 001633 00001A
-# Yellow 10% Shading Light F7C530 FFDF4A FFF863 FFFF7D FFFF96 FFFFAF FFFFC9 FFFFE3 FFFFFC
-# Yellow 10% Shading Dark  F7C530 DEAC17 C49200 AB7900 915F00 784600 5E2C00 451300 2B0000 120000
-# Orange 10% Shading Light F79D1E FFB738 FFD051 FFEA6B FFFF84 FFFF9D FFFFB7 FFFFD1 FFFFEA
-# Orange 10% Shading Dark  F79D1E DE8405 C46A00 AB5100 913700 781E00 5E0400 450000 2B0000 120000
-
-# terminal-16
-# black  red    green  yellow blue   purple cyan   white
-# 0C141F CC0E00 006151 F79D1E 004966 000B27 097D80 66C7B7
-# 8B939E FF410D 40E0D0 FFD051 7FC8E5 748AA6 88FCFF E5FFFF
-
-# color vars
-set $primary-bg             #0C141F
-
-set $window-border          #0C141F
-set $active-window-border   #6EE2FF
-set $urgent-window-border   #F79D1E
-
-set $text                   #6EE2FF
-set $active-text            #BBFFFF
-set $urgent-text            #F79D1E
+# base16 colors
+set $base00    #0C141F
+set $base01    #254857
+set $base02    #356A7C
+set $base03    #8B939E
+set $base04    #55AEC7
+set $base05    #6EE2FF
+set $base06    #B7F1FF
+set $base07    #E7FAFF
+set $base08    #FF410D
+set $base09    #0DA3FF
+set $base0A    #FFD051
+set $base0B    #40E0D0
+set $base0C    #88FCFF
+set $base0D    #7FC8E5
+set $base0E    #F79D1E
+set $base0F    #66C7B7
 
 # gaps vars
 set $default-gap-size       10
@@ -65,7 +58,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+semicolon kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec i3-dmenu-desktop --dmenu='dmenu -l 32 -nb "$primary-bg" -nf "$text" -sb "$primary-bg" -sf "$active-text"'
+bindsym $mod+e exec i3-dmenu-desktop --dmenu='dmenu -l 32 -nb "$base00" -nf "$base05" -sb "$base00" -sf "$base07"'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -211,11 +204,11 @@ mode "resize" {
 bindsym $mod+p mode "resize"
 
 # window colors
-#                       border                background            text            indicator
-client.focused          $active-window-border $active-window-border $window-border  $active-window-border
-client.unfocused        $window-border        $window-border        $text           $window-border
-client.focused_inactive $window-border        $window-border        $text           $window-border
-client.urgent           $urgent-window-border $urgent-window-border $window-border  $urgent-window-border
+#                       border  background text    indicator
+client.focused          $base05 $base05    $base00 $base05
+client.unfocused        $base00 $base00    $base05 $base00
+client.focused_inactive $base00 $base00    $base05 $base00
+client.urgent           $base0E $base0E    $base00 $base0E
 
 hide_edge_borders both
 
@@ -224,12 +217,12 @@ hide_edge_borders both
 bar {
         status_command i3blocks -c ~/.config/i3blocks/config
         colors {
-            background $primary-bg
-            separator $primary-bg
-            #                   border          background     text
-            focused_workspace   $primary-bg     $primary-bg    $active-text
-            inactive_workspace  $primary-bg     $primary-bg    $text
-            urgent_workspace    $primary-bg     $primary-bg    $urgent-text
+            background $base00
+            separator $base00
+            #                   border  background text
+            focused_workspace   $base00 $base05    $base00
+            inactive_workspace  $base00 $base00    $base05
+            urgent_workspace    $base00 $base00    $base0E
         }
         position top
 }
@@ -238,8 +231,8 @@ bar {
 bindsym $mod+shift+o sticky toggle
 
 # Lock screen
-# bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$primary-bg"
-bindsym $mod+shift+x exec i3lock --color "$primary-bg"
+# bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$base02"
+bindsym $mod+shift+x exec i3lock --color "$base02"
 
 # Work vpn all-the-time
 exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/.bin/vpn
@@ -279,8 +272,8 @@ bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 25
 
 # Wallpaper
 # exec_always feh --bg-scale ~/Pictures/wallpaper
-exec_always --no-startup-id xsetroot -solid "$primary-bg"
-exec_always --no-startup-id hsetroot -solid "$primary-bg"
+exec_always --no-startup-id xsetroot -solid "$base00"
+exec_always --no-startup-id hsetroot -solid "$base00"
 
 # PiP Config
 set $pipWidth 720

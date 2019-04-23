@@ -158,7 +158,9 @@ sudo_careful_link $DIR_SH/gitconfig_system /etc/gitconfig
 # Deal with nvim
 echo "-------------------neovim---------------------"
 mkdir -pv ~/.config/nvim
+mkdir -pv ~/.config/nvim/colors
 careful_link $DIR_SH/nvim/init.vim ~/.config/nvim/init.vim
+careful_link $DIR_SH/nvim/colors/base16-tron-legacy.vim ~/.config/nvim/colors/base16-tron-legacy.vim
 
 # Deal with nvim
 echo "---------------------vis----------------------"

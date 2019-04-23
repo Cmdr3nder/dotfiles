@@ -4,7 +4,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 call plug#begin('~/.config/nvim/plugged')
-Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'lotabout/skim'
 Plug 'lotabout/skim.vim'
 Plug 'itchyny/lightline.vim'
@@ -79,7 +78,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " colors
 set background=dark
-colorscheme dim
+colorscheme base16-tron-legacy
 
 " turn on line numbers
 set number
