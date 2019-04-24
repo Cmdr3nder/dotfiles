@@ -242,6 +242,7 @@ alias celar='clear'
 #alias rg='rg --color=always --heading'
 alias less='less -R'
 alias view='nvim -R'
+alias duh='ls -a | rg -v "^\.+$" | xargs -I {} du -sh {} | sort -h'
 
 export PATH="$HOME/.bin:$PATH"
 
