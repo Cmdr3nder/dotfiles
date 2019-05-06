@@ -34,7 +34,7 @@ endfunction
 
 set noshowmode
 let g:lightline = {
-            \ 'colorscheme': '16color',
+            \ 'colorscheme': 'powerline',
             \ 'active': {
             \  'left': [
             \           [ 'mode', 'paste' ],
