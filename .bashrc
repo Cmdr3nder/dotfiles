@@ -228,7 +228,7 @@ super_pass() {
 
 alias pass='super_pass'
 
-export SKIM_DEFAULT_COMMAND="rg --files || git ls-tree -r --name-only HEAD || find ."
+export SKIM_DEFAULT_COMMAND="rg --files --hidden -g'!.git' || git ls-tree -r --name-only HEAD || find ."
 
 function skv() {
     FOUND=`sk` && echo $FOUND && vim $FOUND
