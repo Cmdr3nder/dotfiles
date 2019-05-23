@@ -9,6 +9,7 @@ Plug 'lotabout/skim.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'racer-rust/vim-racer' "cargo install racer
+Plug 'ruanyl/vim-fixmyjs'
 call plug#end()
 
 " deoplete config - autocompletion
@@ -22,6 +23,10 @@ let g:skim_action = {
             \}
 " down/up/left/right
 let g:skim_layout = { 'down': '~20%' }
+
+" Fix My JS
+au BufWritePost *.js :Fixmyjs
+au BufWritePost *.jsx :Fixmyjs
 
 " line config
 function! LightlineFileformat()
