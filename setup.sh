@@ -144,6 +144,7 @@ mkdir -pv ~/.bin
 careful_link $DIR_SH/vpn.sh ~/.bin/vpn
 careful_link $DIR_SH/netflix.sh ~/.bin/netflix
 careful_link $DIR_SH/youtube.sh ~/.bin/yy
+careful_link $DIR_SH/keyboard.sh ~/.bin/skl
 careful_link $DIR_SH/normalizexrandr.lua ~/.bin/normalizexrandr
 mkdir -pv ~/.config/i3
 careful_link $DIR_SH/i3/config ~/.config/i3/config
