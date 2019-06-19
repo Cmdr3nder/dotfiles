@@ -72,5 +72,6 @@
 	remember = update-index --no-assume-unchanged
 	forgotten = !git ls-files -v | grep ^[a-z]
 	apply-file = "!f() { git show $1 -- $2 | git apply -; }; f"
+    co-pr = "!f() { git fetch origin refs/pull-requests/$1/from:$2 && git co $2; }; f"
 [gc]
 	autoDetach = false
