@@ -117,7 +117,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "01: "
-set $ws2 "02: "
+set $ws2 "02: <span foreground='#268bd2'></span>"
 set $ws3 "03: "
 set $ws4 "04: "
 set $ws5 "05: "
