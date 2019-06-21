@@ -26,26 +26,26 @@ font pango:System San Francisco Display 16
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# base16 colors
-set $base00    #0C141F
-set $base01    #254857
-set $base02    #356A7C
-set $base03    #8B939E
-set $base04    #55AEC7
-set $base05    #6EE2FF
-set $base06    #B7F1FF
-set $base07    #E7FAFF
-set $base08    #FF410D
-set $base09    #0DA3FF
-set $base0A    #FFD051
-set $base0B    #40E0D0
-set $base0C    #88FCFF
-set $base0D    #7FC8E5
-set $base0E    #F79D1E
-set $base0F    #66C7B7
+# solarized colors
+set $base03    #002b36
+set $base02    #073642
+set $base01    #586e75
+set $base00    #657b83
+set $base0     #839496
+set $base1     #93a1a1
+set $base2     #eee8d5
+set $base3     #fdf6e3
+set $yellow    #b58900
+set $orange    #cb4b16
+set $red       #dc322f
+set $magenta   #d33682
+set $violet    #6c71c4
+set $blue      #268bd2
+set $cyan      #2aa198
+set $green     #859900
 
 # gaps vars
-set $default-gap-size       10
+set $default-gap-size       15
 set $extra-surround-size     0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -58,7 +58,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+semicolon kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec i3-dmenu-desktop --dmenu='dmenu -l 32 -nb "$base00" -nf "$base05" -sb "$base00" -sf "$base07"'
+bindsym $mod+e exec i3-dmenu-desktop --dmenu='dmenu -l 32 -nb "$base3" -nf "$base00" -sb "$base2" -sf "$base00"'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -116,16 +116,28 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "01: "
-set $ws2 "02: <span foreground='#268bd2'></span>"
-set $ws3 "03: "
-set $ws4 "04: "
-set $ws5 "05: "
-set $ws6 "06: "
-set $ws7 "07: "
-set $ws8 "08: "
-set $ws9 "09: "
-set $ws10 "10: "
+set $ws1 "1 <span foreground='#268bd2'></span> "
+set $ws2 "2 <span foreground='#2aa198'></span> "
+set $ws3 "3 <span foreground='#859900'></span> "
+set $ws4 "4 <span foreground='#b58900'></span> "
+set $ws5 "5 <span foreground='#cb4b16'></span> "
+set $ws6 "6 <span foreground='#dc322f'></span> "
+set $ws7 "7 <span foreground='#d33682'></span> "
+set $ws8 "8 <span foreground='#6c71c4'></span> "
+set $ws9 "9 <span foreground='#839496'></span> "
+set $ws10 "10 <span foreground='#268bd2'></span> "
+set $ws11 "11 <span foreground='#2aa198'></span> "
+set $ws12 "12 <span foreground='#859900'></span> "
+set $ws13 "13 <span foreground='#b58900'></span> "
+set $ws14 "14 <span foreground='#cb4b16'></span> "
+set $ws15 "15 <span foreground='#dc322f'></span> "
+set $ws16 "16 <span foreground='#d33682'></span> "
+set $ws17 "17 <span foreground='#6c71c4'></span> "
+set $ws18 "18 <span foreground='#839496'></span> "
+set $ws19 "19 <span foreground='#268bd2'></span> "
+
+# Invisible workspace
+set $ws20 " "
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -138,6 +150,17 @@ bindsym $mod+asterisk workspace $ws7
 bindsym $mod+parenright workspace $ws8
 bindsym $mod+plus workspace $ws9
 bindsym $mod+bracketright workspace $ws10
+bindsym $mod+Ctrl+ampersand workspace $ws11
+bindsym $mod+Ctrl+bracketleft workspace $ws12
+bindsym $mod+Ctrl+braceleft workspace $ws13
+bindsym $mod+Ctrl+braceright workspace $ws14
+bindsym $mod+Ctrl+parenleft workspace $ws15
+bindsym $mod+Ctrl+equal workspace $ws16
+bindsym $mod+Ctrl+asterisk workspace $ws17
+bindsym $mod+Ctrl+parenright workspace $ws18
+bindsym $mod+Ctrl+plus workspace $ws19
+
+bindsym $mod+Ctrl+bracketright workspace $ws20
 
 # move focused container to workspace
 bindsym $mod+Shift+ampersand move container to workspace $ws1
@@ -150,6 +173,17 @@ bindsym $mod+Shift+asterisk move container to workspace $ws7
 bindsym $mod+Shift+2 move container to workspace $ws8
 bindsym $mod+Shift+plus move container to workspace $ws9
 bindsym $mod+Shift+bracketright move container to workspace $ws10
+bindsym $mod+Shift+Ctrl+ampersand move container to workspace $ws11
+bindsym $mod+Shift+Ctrl+bracketleft move container to workspace $ws12
+bindsym $mod+Shift+Ctrl+braceleft move container to workspace $ws13
+bindsym $mod+Shift+Ctrl+braceright move container to workspace $ws14
+bindsym $mod+Shift+Ctrl+1 move container to workspace $ws15
+bindsym $mod+Shift+Ctrl+equal move container to workspace $ws16
+bindsym $mod+Shift+Ctrl+asterisk move container to workspace $ws17
+bindsym $mod+Shift+Ctrl+2 move container to workspace $ws18
+bindsym $mod+Shift+Ctrl+plus move container to workspace $ws19
+
+bindsym $mod+Shift+Ctrl+bracketright move container to workspace $ws20
 
 # gaps config
 for_window [class="^.*"] border pixel 2
@@ -205,10 +239,10 @@ bindsym $mod+p mode "resize"
 
 # window colors
 #                       border  background text    indicator
-client.focused          $base05 $base05    $base00 $base05
-client.unfocused        $base00 $base00    $base05 $base00
-client.focused_inactive $base00 $base00    $base05 $base00
-client.urgent           $base0E $base0E    $base00 $base0E
+client.focused          $blue   $blue      $base2  $blue
+client.unfocused        $base3  $base3     $base00 $base3
+client.focused_inactive $base3  $base3     $base00 $base3
+client.urgent           $orange $orange    $base2  $orange
 
 hide_edge_borders both
 
@@ -217,22 +251,22 @@ hide_edge_borders both
 bar {
         status_command i3blocks -c ~/.config/i3blocks/config
         colors {
-            background $base00
-            separator $base00
+            background $base3
+            separator $base3
             #                   border  background text
-            focused_workspace   $base00 $base05    $base00
-            inactive_workspace  $base00 $base00    $base05
-            urgent_workspace    $base00 $base00    $base0E
+            focused_workspace   $base2  $base2     $base00
+            inactive_workspace  $base3  $base3     $base00
+            urgent_workspace    $base3  $base3     $orange
         }
-        position top
+        position bottom
 }
 
 # sticky window
 bindsym $mod+shift+o sticky toggle
 
 # Lock screen
-# bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$base02"
-bindsym $mod+shift+x exec i3lock --color "$base02"
+bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk '/\*/{print $1}')^ -gravity center -extent $(xrandr -q | awk '/\*/{print $1}') ~/Pictures/lockpaper-resize.png && i3lock -i ~/Pictures/lockpaper-resize.png --color "$base02"
+# bindsym $mod+shift+x exec i3lock --color "$base02"
 
 # Work vpn all-the-time
 exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/.bin/vpn
@@ -271,9 +305,9 @@ exec_always ~/.screenlayout/primary
 bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
 
 # Wallpaper
-# exec_always feh --bg-scale ~/Pictures/wallpaper
-exec_always --no-startup-id xsetroot -solid "$base00"
-exec_always --no-startup-id hsetroot -solid "$base00"
+exec_always feh --bg-scale ~/Pictures/wallpaper
+exec_always --no-startup-id xsetroot -solid "$base1"
+exec_always --no-startup-id hsetroot -solid "$base1"
 
 # PiP Config
 set $pipWidth 720

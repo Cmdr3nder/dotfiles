@@ -10,6 +10,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'racer-rust/vim-racer' "cargo install racer
 Plug 'ruanyl/vim-fixmyjs'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " deoplete config - autocompletion
@@ -39,7 +40,7 @@ endfunction
 
 set noshowmode
 let g:lightline = {
-            \ 'colorscheme': 'powerline',
+            \ 'colorscheme': 'solarized',
             \ 'active': {
             \  'left': [
             \           [ 'mode', 'paste' ],
@@ -82,8 +83,8 @@ noremap _ ^
 tnoremap <Esc> <C-\><C-n>
 
 " colors
-set background=dark
-colorscheme base16-tron-legacy
+set background=light
+colorscheme solarized
 
 " turn on line numbers
 set number
