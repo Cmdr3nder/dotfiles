@@ -11,6 +11,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'racer-rust/vim-racer' "cargo install racer
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'altercation/vim-colors-solarized'
+Plug 'wavded/vim-stylus'
 call plug#end()
 
 " deoplete config - autocompletion
