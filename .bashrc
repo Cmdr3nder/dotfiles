@@ -252,3 +252,6 @@ bind Space:magic-space
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/andrew/.sdkman"
 [[ -s "/home/andrew/.sdkman/bin/sdkman-init.sh" ]] && source "/home/andrew/.sdkman/bin/sdkman-init.sh"
+
+export LS_COLORS="no=00:fi=00:di=34:ex=03;32:ln=36:pi=40;31:do=40;31:bd=40;31:cd=40;31:or=04;31:so=40;31:mi=04;31"
+export EXA_COLORS="ur=03;33:gr=33:tr=33:uw=03;31:gw=31:tw=31:ux=03;32:ue=03;32:gx=32:tx=32:sn=32:sb=32:uu=33"
