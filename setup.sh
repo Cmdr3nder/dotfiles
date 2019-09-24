@@ -108,6 +108,7 @@ careful_install mpd
 careful_install cantata
 careful_install paprefs
 careful_install hsetroot
+careful_install sshfs
 execute_careful_install
 
 echo "--------------manual-install------------------"
@@ -177,6 +178,7 @@ echo "---------------------kak----------------------"
 mkdir -pv ~/.config/kak
 careful_git_clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
 careful_link $DIR_SH/kakrc ~/.config/kak/kakrc
+
 # Deal with mpd
 echo "---------------------mpd----------------------"
 sudo_careful_link $DIR_SH/mpd_system /etc/mpd.conf
