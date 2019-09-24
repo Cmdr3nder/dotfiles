@@ -172,6 +172,11 @@ mkdir -pv ~/.config/vis/plugins
 careful_git_clone ssh://git@agamecoder.com/~/vis-sk-open.git ~/.config/vis/plugins/vis-sk-open
 careful_git_clone ssh://git@agamecoder.com/~/vis-sk-mru.git ~/.config/vis/plugins/vis-sk-mru
 
+# Deal with kakoune
+echo "---------------------kak----------------------"
+mkdir -pv ~/.config/kak
+careful_git_clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
+careful_link $DIR_SH/kakrc ~/.config/kak/kakrc
 # Deal with mpd
 echo "---------------------mpd----------------------"
 sudo_careful_link $DIR_SH/mpd_system /etc/mpd.conf
