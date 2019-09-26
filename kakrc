@@ -14,4 +14,12 @@ hook global ModuleLoaded fzf %{
 
 hook global WinCreate ^[^*]+$ %{editorconfig-load}
 
+hook global BufNewFile / %{
+    set-option -add buffer path %sh{dirname "$kak_buffile"}
+}
+
+hook global BufCreate  / %{
+    set-option -add buffer path %sh{dirname "$kak_buffile"}
+}
+
 map global normal <c-p> ': fzf-mode<ret>'
