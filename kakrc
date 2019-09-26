@@ -4,6 +4,7 @@ add-highlighter global/number-lines number-lines
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
 plug "andreyorst/fzf.kak"
+plug "andreyorst/smarttab.kak"
 
 hook global ModuleLoaded fzf %{
     set global fzf_implementation sk
@@ -23,3 +24,5 @@ hook global BufCreate  / %{
 }
 
 map global normal <c-p> ': fzf-mode<ret>'
+
+set-option global ui_options ncurses_assistant=none
