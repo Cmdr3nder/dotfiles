@@ -109,6 +109,7 @@ careful_install cantata
 careful_install paprefs
 careful_install hsetroot
 careful_install sshfs
+careful_install editorconfig
 execute_careful_install
 
 echo "--------------manual-install------------------"
@@ -152,6 +153,11 @@ careful_link $DIR_SH/i3/config ~/.config/i3/config
 mkdir -pv ~/.config/i3blocks
 careful_git_clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/contrib
 careful_link $DIR_SH/i3/i3blocks.conf ~/.config/i3blocks/config
+
+# Deal with tools
+echo "--------------------tools---------------------"
+careful_link $DIR_SH/copy.sh ~/.bin/copy
+careful_link $DIR_SH/copy.sh ~/.bin/clipboard
 
 # Deal with git
 echo "---------------------git----------------------"

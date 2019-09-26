@@ -141,8 +141,6 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
-alias copy='xclip -sel clip'
-alias clipboard=copy
 alias fempty='sudo truncate -s 0'
 alias tmux='tmux -2'
 alias xargs='xargs '
