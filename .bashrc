@@ -147,7 +147,7 @@ alias xargs='xargs '
 alias shrink='tar cjf'
 alias grow='tar xjf'
 
-export EDITOR=vim
+export EDITOR=kak
 
 function cengageOn {
 	pass Cengage/corp/abowers | sudo openconnect contractor.cengage.net -u abowers --no-cert-check --passwd-on-stdin --disable-ipv6
@@ -229,7 +229,7 @@ alias pass='super_pass'
 export SKIM_DEFAULT_COMMAND="rg --files --hidden -g'!.git' || git ls-tree -r --name-only HEAD || find ."
 
 function skv() {
-    FOUND=`sk` && echo $FOUND && vim $FOUND
+    FOUND=`sk` && echo $FOUND && kak $FOUND
 }
 
 function xmlless() {
@@ -239,7 +239,7 @@ function xmlless() {
 alias celar='clear'
 #alias rg='rg --color=always --heading'
 alias less='less -R'
-alias view='nvim -R'
+alias view='kak'
 alias duh='ls -a | rg -v "^\.+$" | xargs -I {} du -sh {} | sort -h'
 
 export PATH="$HOME/.bin:$PATH"

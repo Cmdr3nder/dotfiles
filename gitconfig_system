@@ -1,6 +1,6 @@
 [core]
 	autocrlf = input
-	editor = vim
+	editor = kak
 	pager = less -x1,5
 [push]
 	default = simple
