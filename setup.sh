@@ -88,7 +88,6 @@ careful_link $DIR_SH/.bashrc ~/.bashrc
 # Deal with necessary programs
 echo "------------------apt-install-----------------"
 careful_install compton
-careful_install nvim neovim
 careful_install dmenu suckless-tools
 careful_install arandr
 careful_install lxappearance
@@ -99,13 +98,12 @@ careful_install alsamixer alsa-utils
 careful_install acpi
 careful_install python3
 careful_install mpv
+careful_install cmus
 careful_install i3status
 careful_install i3blocks
 careful_install i3lock
 careful_install wget
 careful_install unzip
-careful_install mpd
-careful_install cantata
 careful_install paprefs
 careful_install hsetroot
 careful_install sshfs
@@ -138,7 +136,7 @@ fi
 
 manual_install_warn copyq https://github.com/hluk/CopyQ/releases
 manual_install_warn playerctl https://github.com/acrisci/playerctl/releases
-manual_install_warn vis https://github.com/martanne/vis
+manual_install_warn kak "https://github.com/mawww/kakoune#22-installing"
 
 # Deal with i3
 echo "----------------------i3----------------------"
@@ -164,35 +162,11 @@ careful_link $DIR_SH/mpvb.sh ~/.bin/mpvb
 echo "---------------------git----------------------"
 sudo_careful_link $DIR_SH/gitconfig_system /etc/gitconfig
 
-# Deal with nvim
-echo "-------------------neovim---------------------"
-mkdir -pv ~/.config/nvim
-mkdir -pv ~/.config/nvim/colors
-careful_link $DIR_SH/nvim/init.vim ~/.config/nvim/init.vim
-careful_link $DIR_SH/nvim/colors/base16-tron-legacy.vim ~/.config/nvim/colors/base16-tron-legacy.vim
-
-# Deal with nvim
-echo "---------------------vis----------------------"
-mkdir -pv ~/.config/vis
-careful_link $DIR_SH/vis/visrc.lua ~/.config/vis/visrc.lua
-careful_git_clone ssh://git@agamecoder.com/~/vis-themes.git ~/.config/vis/themes
-mkdir -pv ~/.config/vis/plugins
-careful_git_clone ssh://git@agamecoder.com/~/vis-sk-open.git ~/.config/vis/plugins/vis-sk-open
-careful_git_clone ssh://git@agamecoder.com/~/vis-sk-mru.git ~/.config/vis/plugins/vis-sk-mru
-
 # Deal with kakoune
 echo "---------------------kak----------------------"
 mkdir -pv ~/.config/kak
 careful_git_clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
 careful_link $DIR_SH/kakrc ~/.config/kak/kakrc
-
-# Deal with mpd
-echo "---------------------mpd----------------------"
-sudo_careful_link $DIR_SH/mpd_system /etc/mpd.conf
-
-# Deal with tmux
-echo "---------------------tmux---------------------"
-careful_link $DIR_SH/.tmux.conf ~/.tmux.conf
 
 # Manually config gtk
 careful_link $DIR_SH/gtk.css ~/.config/gtk-3.0/gtk.css
