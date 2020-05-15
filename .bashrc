@@ -216,7 +216,7 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/projects/go
 export PATH=$PATH:$GOPATH/bin
 
-tabs 4
+tabs 3
 
 super_pass() {
     copyq disable
