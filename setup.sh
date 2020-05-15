@@ -141,7 +141,6 @@ manual_install_warn kak "https://github.com/mawww/kakoune#22-installing"
 # Deal with i3
 echo "----------------------i3----------------------"
 mkdir -pv ~/.bin
-careful_link $DIR_SH/vpn.sh ~/.bin/vpn
 careful_link $DIR_SH/netflix.sh ~/.bin/netflix
 careful_link $DIR_SH/youtube.sh ~/.bin/yy
 careful_link $DIR_SH/keyboard.sh ~/.bin/skl
