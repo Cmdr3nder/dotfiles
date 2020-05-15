@@ -302,7 +302,7 @@ exec_always setxkbmap -option caps:swapescape -option keypad:atm -option compose
 exec_always ~/.screenlayout/primary
 
 # Work Laptop, No External, Rescue Me Config
-bindsym $mod+shift+l exec xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
+bindsym $mod+shift+l exec xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-2 --off
 
 # Wallpaper
 exec_always feh --bg-scale ~/Pictures/wallpaper

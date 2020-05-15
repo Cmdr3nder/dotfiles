@@ -158,6 +158,8 @@ careful_link $DIR_SH/copy.sh ~/.bin/copy
 careful_link $DIR_SH/copy.sh ~/.bin/clipboard
 careful_link $DIR_SH/duh.sh ~/.bin/duh
 careful_link $DIR_SH/mpvb.sh ~/.bin/mpvb
+careful_link $DIR_SH/get-edid.py ~/.bin/get-edid
+careful_link $DIR_SH/get-external-edid.sh ~/.bin/get-external-edid
 
 # Deal with git
 echo "---------------------git----------------------"
