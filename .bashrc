@@ -236,6 +236,7 @@ function xmlless() {
     xmllint $1 --format | less
 }
 
+alias terminal='gnome-terminal'
 alias celar='clear'
 #alias rg='rg --color=always --heading'
 alias less='less -R'
