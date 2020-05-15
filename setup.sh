@@ -156,6 +156,7 @@ careful_link $DIR_SH/i3/i3blocks.conf ~/.config/i3blocks/config
 echo "--------------------tools---------------------"
 careful_link $DIR_SH/copy.sh ~/.bin/copy
 careful_link $DIR_SH/copy.sh ~/.bin/clipboard
+careful_link $DIR_SH/duh.sh ~/.bin/duh
 careful_link $DIR_SH/mpvb.sh ~/.bin/mpvb
 
 # Deal with git
