@@ -269,7 +269,7 @@ bindsym $mod+shift+x exec convert ~/Pictures/lockpaper -resize $(xrandr -q | awk
 # bindsym $mod+shift+x exec i3lock --color "$base02"
 
 # Work vpn all-the-time
-exec_always --no-startup-id pass Emberex/comp/linux | sudo -S ~/.bin/vpn
+exec_always --no-startup-id ~/.bin/vpn
 
 # Disable display sleeping (causes audio issues with HDMI)
 # See: https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
