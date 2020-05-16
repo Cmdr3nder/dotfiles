@@ -242,7 +242,6 @@ alias celar='clear'
 alias less='less -R'
 alias view='kak'
 
-export PATH="$HOME/projects/tools-environment/apache-maven-3.6.3/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 
 # command expansion of !! and other 'history' commands, inspired by https://unix.stackexchange.com/a/147572
