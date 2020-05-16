@@ -142,7 +142,7 @@ if [ -x /usr/bin/mint-fortune ]; then
 fi
 
 alias fempty='sudo truncate -s 0'
-alias tmux='tmux -2'
+alias tmux='TERM=screen-256color-bce tmux'
 alias xargs='xargs '
 alias shrink='tar cjf'
 alias grow='tar xjf'
